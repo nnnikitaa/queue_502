@@ -285,3 +285,49 @@ footer {
   .actions { width: 100%; }
   .actions button { flex: 1; }
 }
+
+.auth-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.auth-tab {
+  background: #edf0f5;
+  color: #364152;
+}
+.auth-tab.active {
+  background: #182033;
+  color: #fff;
+}
+.auth-hint {
+  margin: 10px 0 0;
+  color: #8a93a3;
+  font-size: 12px;
+}
+.user-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 14px 18px;
+  border: 1px solid #e5e9f1;
+  border-radius: 16px;
+  background: #fff;
+}
+.user-bar .btn-light {
+  padding: 9px 14px;
+}
+.owner-name {
+  display: block;
+  margin-top: 3px;
+  color: #8a93a3;
+  font-size: 11px;
+}
+.person-row.is-own {
+  border-color: #cbd5ff;
+  background: #f7f8ff;
+}
+.person-row.legacy {
+  border-style: dashed;
+}

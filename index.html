@@ -4,31 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f5f7fb">
-  <title>Онлайн-очередь к преподавателям</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <title>Очередь — вход и регистрация</title>
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
   <main class="container">
     <header class="hero">
       <p class="eyebrow">Онлайн-запись</p>
       <h1>Очередь к преподавателю</h1>
-      <p class="subtitle">
-        Введите фамилию и выберите преподавателя. Очередь общая для всех пользователей.
-      </p>
+      <p class="subtitle">Войдите под своим именем, чтобы записываться и управлять только своими записями.</p>
     </header>
 
-    <section class="join-card">
+    <section id="authCard" class="join-card auth-card">
+      <div class="auth-tabs">
+        <button id="loginTab" class="auth-tab active" type="button">Вход</button>
+        <button id="registerTab" class="auth-tab" type="button">Регистрация</button>
+      </div>
+
+      <form id="authForm" autocomplete="off">
+        <label>
+          Имя пользователя
+          <input id="authUsername" maxlength="40" placeholder="Например, Иванов" required>
+        </label>
+
+        <label>
+          Пароль
+          <input id="authPassword" type="password" minlength="4" maxlength="100" placeholder="Минимум 4 символа" required>
+        </label>
+
+        <button id="authSubmit" type="submit">Войти</button>
+      </form>
+
+      <p class="auth-hint">Пароль задаётся при регистрации и изменить его через сайт нельзя.</p>
+      <p id="authMessage" class="message" aria-live="polite"></p>
+    </section>
+
+    <section id="userBar" class="user-bar" hidden>
+      <div>
+        Вы вошли как <strong id="currentUsername"></strong>
+      </div>
+      <button id="logoutBtn" class="btn-light" type="button">Выйти</button>
+    </section>
+
+    <section id="joinCard" class="join-card" hidden>
       <form id="joinForm" autocomplete="off">
         <label>
-          Фамилия
-          <input
-            id="surname"
-            name="surname"
-            type="text"
-            maxlength="60"
-            placeholder="Например, Иванов"
-            required
-          >
+          Фамилия в очереди
+          <input id="surname" name="surname" maxlength="60" placeholder="Например, Иванов" required>
         </label>
 
         <label>
@@ -57,7 +79,6 @@
           </div>
           <span id="count1" class="count">0</span>
         </div>
-
         <div id="queue1" class="queue-list"></div>
         <p id="empty1" class="empty">Очередь пока пустая</p>
       </article>
@@ -73,15 +94,12 @@
           </div>
           <span id="count2" class="count">0</span>
         </div>
-
         <div id="queue2" class="queue-list"></div>
         <p id="empty2" class="empty">Очередь пока пустая</p>
       </article>
     </section>
 
-    <footer>
-      Очереди обновляются автоматически.
-    </footer>
+    <footer>Очереди обновляются автоматически.</footer>
   </main>
 
   <template id="personTemplate">
@@ -90,9 +108,9 @@
         <span class="position"></span>
         <div>
           <strong class="surname"></strong>
+          <span class="owner-name"></span>
         </div>
       </div>
-
       <div class="actions">
         <button class="move-btn btn-light" type="button">В конец</button>
         <button class="done-btn btn-done" type="button">✓ Ответил</button>
@@ -101,7 +119,7 @@
   </template>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="config.js?v=3"></script>
-  <script src="app.js?v=3"></script>
+  <script src="config.js?v=5"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>
