@@ -1,6 +1,6 @@
 (() => {
   const config = window.APP_CONFIG || {};
-  const SESSION_KEY = 'queue_session_v5';
+  const SESSION_KEY = 'queue_session_v7';
 
   const authCard = document.querySelector('#authCard');
   const authForm = document.querySelector('#authForm');
