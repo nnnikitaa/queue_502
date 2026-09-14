@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Онлайн-очередь к преподавателям</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <p class="eyebrow">Онлайн-запись</p>
+      <h1>Очередь к преподавателю</h1>
+      <p class="subtitle">
+        Введите фамилию и выберите преподавателя. Очередь общая для всех пользователей.
+      </p>
+    </header>
+
+    <section class="join-card">
+      <form id="joinForm" autocomplete="off">
+        <label>
+          Фамилия
+          <input
+            id="surname"
+            name="surname"
+            type="text"
+            maxlength="60"
+            placeholder="Например, Иванов"
+            required
+          >
+        </label>
+
+        <label>
+          Преподаватель
+          <select id="teacher" name="teacher" required>
+            <option value="1">Преподаватель 1</option>
+            <option value="2">Преподаватель 2</option>
+          </select>
+        </label>
+
+        <button type="submit">Встать в очередь</button>
+      </form>
+
+      <p id="message" class="message" aria-live="polite"></p>
+    </section>
+
+    <section class="queues">
+      <article class="queue-card">
+        <div class="queue-head">
+          <div class="teacher-title">
+            <span class="badge">1</span>
+            <div>
+              <small>Очередь</small>
+              <h2>Преподаватель 1</h2>
+            </div>
+          </div>
+          <span id="count1" class="count">0</span>
+        </div>
+
+        <div id="queue1" class="queue-list"></div>
+        <p id="empty1" class="empty">Очередь пока пустая</p>
+      </article>
+
+      <article class="queue-card">
+        <div class="queue-head">
+          <div class="teacher-title">
+            <span class="badge">2</span>
+            <div>
+              <small>Очередь</small>
+              <h2>Преподаватель 2</h2>
+            </div>
+          </div>
+          <span id="count2" class="count">0</span>
+        </div>
+
+        <div id="queue2" class="queue-list"></div>
+        <p id="empty2" class="empty">Очередь пока пустая</p>
+      </article>
+    </section>
+
+    <footer>
+      Очереди обновляются автоматически.
+    </footer>
+  </main>
+
+  <template id="personTemplate">
+    <div class="person-row">
+      <div class="person-main">
+        <span class="position"></span>
+        <div>
+          <strong class="surname"></strong>
+          <span class="own-label">Это вы</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="move-btn btn-light" type="button">В конец</button>
+        <button class="done-btn btn-done" type="button">✓ Ответил</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
