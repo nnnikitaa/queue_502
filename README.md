@@ -1,5 +1,7 @@
 # Онлайн-очередь к двум преподавателям
 
+> `config.js` уже заполнен вашим Project URL и Publishable key. Secret/service_role key в проект не добавлен.
+
 Готовый вариант для **GitHub Pages + Supabase**.
 
 ## Что работает

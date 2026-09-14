@@ -1,10 +1,8 @@
-// Вставьте сюда данные из Supabase:
-// Project Settings -> API (или Connect -> API Keys)
-//
-// ВАЖНО: используйте Publishable key / anon key.
-// НИКОГДА не вставляйте service_role / secret key.
+// Настройки Supabase для GitHub Pages.
+// Publishable key безопасно использовать в браузере при корректных правах в Supabase.
+// SECRET / service_role ключ сюда НИКОГДА не добавляйте.
 
 window.APP_CONFIG = {
-  SUPABASE_URL: "PASTE_YOUR_SUPABASE_URL_HERE",
-  SUPABASE_ANON_KEY: "PASTE_YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY_HERE"
+  SUPABASE_URL: "https://xrdixyljwhbuqbztmkoi.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_CfWUf-I1Yd_mC_xpTDCWIA_7Vv3KCQT"
 };
